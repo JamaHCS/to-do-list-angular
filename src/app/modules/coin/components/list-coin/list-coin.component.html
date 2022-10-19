@@ -1,0 +1,22 @@
+<table mat-table [dataSource]="dataSourceCoin" class="mat-elevation-z8">
+  <ng-container matColumnDef="posicion">
+      <th mat-header-cell *matHeaderCellDef> Tipo de cambio</th>
+      <td mat-cell *matCellDef="let element"> {{element.moneda_descripcion}} </td>
+    </ng-container>
+  <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Responsable </th>
+      <td mat-cell *matCellDef="let element"> {{element.ultima_modificacion}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha modificación </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha_modificacion}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Editar </th>
+      <td mat-cell *matCellDef="let element"><button mat-raised-button color="primary">Editar</button></td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
