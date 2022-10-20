@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { images } from 'src/app/global/constants';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +6,5 @@ import { images } from 'src/app/global/constants';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
-  readonly images = images;
-
+  
 }

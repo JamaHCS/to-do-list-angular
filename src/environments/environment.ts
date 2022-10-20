@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  urlBase: 'http://tibsapps.com.mx:4039/api/'
 };
 
 /*
