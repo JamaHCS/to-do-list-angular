@@ -1,37 +1,29 @@
 import { TodoService } from './../../../core/services/todo/todo.service';
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, OnInit, Output, Input} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({selector: "app-create-todo", templateUrl: "./create-todo.component.html", styleUrls: ["./create-todo.component.scss"]})
 export class CreateTodoComponent implements OnInit {
   
-  @Output() hasUpdated: EventEmitter<void> = new EventEmitter();
-  public hasTouched: boolean = false;
+  @Output() isCreating: EventEmitter<void> = new EventEmitter();
+  @Input() hasBeenTouched: boolean = false; 
+  @Input() createToDo!: FormGroup;
 
-  
-  createToDo: FormGroup = this.fb.group({
-    todo: ['', [Validators.required]]
-  });
-
-  constructor(private fb : FormBuilder, public todoService: TodoService) {}
+  constructor( ) {}
 
   ngOnInit(): void {
     
   }
 
-  submit(){
-    this.hasTouched = true;
-
-    this.todoService.insert(this.createToDo.controls['todo'].value);
-
-    this.hasUpdated.emit();
-  }
-
   isTouch($event: any) {
     if($event.key == 'Enter'){
-      this.submit();
+      this.isCreating.emit();
     }
 
-    this.hasTouched = true;
+    this.hasBeenTouched = true;
+  }
+
+  submit(){
+    this.isCreating.emit();
   }
 }

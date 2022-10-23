@@ -5,7 +5,7 @@
             <mat-label>To-do</mat-label>
             <input matInput formControlName="todo" placeholder="to do..." (keyup)="isTouch($event)"/>
         </mat-form-field>
-        <mat-error *ngIf="createToDo.controls['todo'].hasError('required') && hasTouched">
+        <mat-error *ngIf="createToDo.controls['todo'].hasError('required') && hasBeenTouched">
             Inserta algo.
         </mat-error>
     </form>
