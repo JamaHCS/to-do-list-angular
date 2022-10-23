@@ -1,8 +1,8 @@
-import { ToDoItem } from "../../models/item/item.model";
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
+import {ToDoItem} from "../../models/item/item.model";
+import {Injectable} from "@angular/core";
+import {Router} from "@angular/router";
 
-@Injectable({ providedIn: "root" })
+@Injectable({providedIn: "root"})
 export class TodoService {
   private todoId: number = 3;
   private todoList: ToDoItem[] = [
@@ -17,7 +17,7 @@ export class TodoService {
     }
   ];
 
-  constructor(private router: Router) {
+  constructor(private router : Router) {
     if (localStorage.getItem("todoList")) {
       console.log("true sercice");
       this.todoList = JSON.parse(localStorage.getItem("todoList")!);
@@ -39,17 +39,25 @@ export class TodoService {
     }
   }
 
-  delete(id: number) {
+  delete(id : number) {
+    console.log("Delete service");
+
     const newToDoList: ToDoItem[] = this.todoList.filter((item) => item.id != id);
     this.updateList(newToDoList);
   }
 
-  private updateList(list: ToDoItem[]) {
+  private updateList(list : ToDoItem[]) {
+    console.log("UpdateList service");
+    console.log(list);
+
     localStorage.setItem("todoList", JSON.stringify(list));
     this.rechargeListFromStorage();
   }
 
   private rechargeListFromStorage() {
+    console.log("recharge service");
+    console.log(localStorage.getItem("todoList"));
+
     this.todoList = JSON.parse(localStorage.getItem("todoList")!);
   }
 
@@ -57,12 +65,14 @@ export class TodoService {
     console.log("test");
   }
 
-  getAll(): ToDoItem[] {
+  getAll(): ToDoItem[]{
     console.log("getAll service", this.todoList);
     return this.todoList;
   }
 
-  doCheck(id: number) {
+  doCheck(id : number) {
+    console.log("done service");
+
     const item: ToDoItem | undefined = this.todoList.find((item) => item.id == id);
 
     if (item) {
@@ -77,7 +87,9 @@ export class TodoService {
     }
   }
 
-  insert(item: ToDoItem) {
+  insert(item : ToDoItem) {
+    console.log("insert service");
+
     item.id = this.todoId;
     this.todoId++;
 
