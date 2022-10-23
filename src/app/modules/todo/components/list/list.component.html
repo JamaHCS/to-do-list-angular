@@ -4,6 +4,13 @@
         [hasBeenTouched]="hasBeenTouched" 
         [createToDo]="createToDo">
     </app-create-todo>
+
     <mat-progress-bar mode="determinate" value="100" class="my-3"></mat-progress-bar>
-    <app-to-do-table></app-to-do-table>
+    
+    <app-to-do-table
+    (onDelete)="onDelete($event)"
+    [toDoItems]="toDoItems"
+    [displayedColumns]="displayedColumns"
+    [dataSource]="dataSource">
+    </app-to-do-table>
 </div>
