@@ -1,0 +1,27 @@
+p,
+mat-card-subtitle {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card {
+    max-width: 30vw;
+}
+
+button{
+    align-self: flex-start;
+    justify-self: start;
+    margin-left: 1rem;
+}
+
+.details-container {
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 80%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}

@@ -99,4 +99,8 @@ export class TodoService {
     newList.push(item);
     this.updateList(newList);
   }
+
+  get(id: number) {
+    return this.todoList.find((item) => item.id == id);
+  }
 }

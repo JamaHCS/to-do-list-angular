@@ -2,6 +2,7 @@ import { TodoService } from './../../../core/services/todo/todo.service';
 import { ToDoItem } from '../../../core/models/item/item.model';
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-to-do-table',
@@ -13,7 +14,7 @@ export class ToDoTableComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'name', 'status', 'actions'];
   public dataSource: MatTableDataSource<ToDoItem> = new MatTableDataSource();
 
-  constructor(public todoService: TodoService) { }
+  constructor(public todoService: TodoService, public router: Router) { }
 
   ngOnInit(): void {
     this.getItems();

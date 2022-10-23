@@ -7,10 +7,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
+    MatProgressBarModule,
+    MatCardModule,
     CommonModule,
     MatTableModule,
     MatButtonModule,
@@ -21,6 +25,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule
   ],
   exports: [
+    MatProgressBarModule,
+    MatCardModule,
     MatTableModule,
     MatButtonModule,
     MatToolbarModule,

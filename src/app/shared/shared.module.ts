@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ToDoTableComponent } from './components/to-do-table/to-do-table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
     ToDoTableComponent
   ],
   imports: [
+    RouterModule,
     CommonModule,
     MaterialModule,
     MatFormFieldModule,

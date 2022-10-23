@@ -1,1 +1,17 @@
-<p>details works!</p>
+
+<div class="details-container">
+    <button mat-raised-button color="accent" routerLink="/to-do">Regresar</button>
+    <mat-card class="mat-elevation-z8">
+        <mat-card-subtitle>#{{ item.id }}</mat-card-subtitle>
+    <mat-card-content>
+        <p>
+            {{item.name}} - 
+            <mat-icon *ngIf="!item.done" style="color: red">close</mat-icon>
+            <mat-icon *ngIf="item.done" style="color: green">done</mat-icon>
+        </p>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
+    </div>
