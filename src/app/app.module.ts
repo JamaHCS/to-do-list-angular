@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -23,6 +24,7 @@ import { LoadingComponent } from './shared/components/loading/loading.component'
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    SharedModule,
     LayoutModule
   ],
   providers: [

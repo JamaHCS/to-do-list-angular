@@ -5,12 +5,14 @@ import { ToDoTableComponent } from './components/to-do-table/to-do-table.compone
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
-    ToDoTableComponent
+    ToDoTableComponent,
+    NavbarComponent
   ],
   imports: [
     RouterModule,
@@ -20,6 +22,6 @@ import { RouterModule } from '@angular/router';
 
         MatInputModule
   ],
-  exports: [ToDoTableComponent]
+  exports: [ToDoTableComponent, NavbarComponent]
 })
 export class SharedModule { }
