@@ -1,5 +1,5 @@
 import { TodoService } from './../../../core/services/todo/todo.service';
-import { ToDoItem } from './../../../core/models/todo/item.model';
+import { ToDoItem } from '../../../core/models/item/item.model';
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -10,15 +10,28 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ToDoTableComponent implements OnInit {
   public toDoItems: ToDoItem[] = [];
-  public displayedColumns: string[] = ['id', 'name', 'done', 'actions'];
+  public displayedColumns: string[] = ['id', 'name', 'status', 'actions'];
+  public dataSource: MatTableDataSource<ToDoItem> = new MatTableDataSource();
 
   constructor(public todoService: TodoService) { }
 
   ngOnInit(): void {
+    this.getItems();
+    this.dataSource = new MatTableDataSource(this.toDoItems);
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getItems() {
     this.toDoItems = this.todoService.getAll();
-    console.log(this.toDoItems);
+    console.log('getItems', this.toDoItems);
+  }
+
+  onDelete(id: number) {
+    this.todoService.delete(id);
+    this.getItems();
   }
 }
