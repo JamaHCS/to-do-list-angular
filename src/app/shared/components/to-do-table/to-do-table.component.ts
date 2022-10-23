@@ -17,7 +17,6 @@ export class ToDoTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItems();
-    this.dataSource = new MatTableDataSource(this.toDoItems);
   }
 
   applyFilter(event: Event) {
@@ -27,6 +26,8 @@ export class ToDoTableComponent implements OnInit {
 
   getItems() {
     this.toDoItems = this.todoService.getAll();
+    this.dataSource = new MatTableDataSource(this.toDoItems);
+
     console.log('getItems', this.toDoItems);
   }
 

@@ -32,9 +32,10 @@ export class TodoService {
       console.log("true id");
       this.todoId = parseInt(JSON.parse(localStorage.getItem("todoId")!));
       console.log(this.todoId);
+      console.log(localStorage.getItem("todoId"));
     } else {
       console.log("false id");
-      localStorage.setItem("todoId", JSON.stringify(this.todoList));
+      localStorage.setItem("todoId", JSON.stringify(this.todoId));
       console.log(this.todoList);
     }
   }
