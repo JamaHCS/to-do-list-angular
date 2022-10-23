@@ -6,13 +6,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     ToDoTableComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule,
@@ -22,6 +24,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
         MatInputModule
   ],
-  exports: [ToDoTableComponent, NavbarComponent]
+  exports: [ToDoTableComponent, NavbarComponent, FooterComponent]
 })
 export class SharedModule { }

@@ -1,13 +1,46 @@
+@import './variables';
+
+*::-webkit-scrollbar {
+    width: $scroll-height;
+    height: $scroll-height;
+    /*display: none; */
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px #8f8f8f;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+*::-webkit-scrollbar-track:hover,
+*::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
+*::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 8px;
+}
+
+
 .handwrited-typography {
     font-family: 'Pacifico', cursive !important;
 }
 
 .app-container {
     flex-direction: column;
-    min-width: 100vw;
-    min-height: 80%;
+    min-width: 90vw;
+    min-height: 95vh;
     display: flex;
-    align-content: center;
+    align-content: flex-start;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
