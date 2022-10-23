@@ -1,0 +1,13 @@
+<div class="create-todo-container">
+    <span class="handwrited-typography">Creating to-do:</span>
+    <form [formGroup]="createToDo">
+        <mat-form-field appearance="fill" class="mb-0">
+            <mat-label>To-do</mat-label>
+            <input matInput formControlName="todo" placeholder="to do..." (keyup)="isTouch($event)"/>
+        </mat-form-field>
+        <mat-error *ngIf="createToDo.controls['todo'].hasError('required') && hasTouched">
+            Inserta algo.
+        </mat-error>
+    </form>
+    <button mat-stroked-button color="primary" (click)="submit()">Add!</button>
+</div>

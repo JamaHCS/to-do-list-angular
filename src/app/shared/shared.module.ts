@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateTodoComponent } from './components/create-todo/create-todo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,16 +16,17 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     ToDoTableComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CreateTodoComponent
   ],
   imports: [
     RouterModule,
     CommonModule,
     MaterialModule,
     MatFormFieldModule,
-
+ReactiveFormsModule, 
         MatInputModule
   ],
-  exports: [ToDoTableComponent, NavbarComponent, FooterComponent]
+  exports: [ToDoTableComponent, NavbarComponent, FooterComponent, CreateTodoComponent]
 })
 export class SharedModule { }

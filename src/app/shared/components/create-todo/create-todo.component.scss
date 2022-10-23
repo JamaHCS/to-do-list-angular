@@ -1,0 +1,32 @@
+.create-todo-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". . .";
+    gap: 1rem;
+}
+
+span {
+    font-size: 2rem;
+    margin-top: 1.2rem;
+}
+
+mat-form-field.mb-0 .mat-form-field-wrapper {
+    margin-bottom: 0 !important;
+}
+
+button {
+    height: 52.06px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-error {
+    margin-top: -19px;
+}

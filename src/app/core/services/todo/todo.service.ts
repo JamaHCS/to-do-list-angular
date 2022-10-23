@@ -88,11 +88,18 @@ export class TodoService {
     }
   }
 
-  insert(item : ToDoItem) {
+  insert(todo : string) {
     console.log("insert service");
 
-    item.id = this.todoId;
+    const item: ToDoItem = {
+      id: this.todoId,
+      name: todo,
+      done: false
+    };
+
     this.todoId++;
+
+    localStorage.setItem('todoId', JSON.stringify(this.todoId));
 
     const newList = [...this.todoList];
 
