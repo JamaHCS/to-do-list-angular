@@ -19,7 +19,8 @@ export class ToDoTableComponent implements OnInit {
   @Input() dataSource: MatTableDataSource<ToDoItem> = new MatTableDataSource();
 
   @Output() onDelete: EventEmitter<number> = new EventEmitter();
-
+  @Output() onChecking: EventEmitter<number> = new EventEmitter();
+  
   constructor(public todoService: TodoService, public router: Router) { }
 
   ngOnInit(): void {
@@ -33,5 +34,9 @@ export class ToDoTableComponent implements OnInit {
 
   deleting(id: number) {
     this.onDelete.emit(id);
+  }
+
+  checking(id: number){
+    this.onChecking.emit(id);
   }
 }

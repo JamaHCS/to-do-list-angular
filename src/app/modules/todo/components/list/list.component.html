@@ -9,6 +9,7 @@
     
     <app-to-do-table
     (onDelete)="onDelete($event)"
+    (onChecking)="onChecking($event)"
     [toDoItems]="toDoItems"
     [displayedColumns]="displayedColumns"
     [dataSource]="dataSource">
