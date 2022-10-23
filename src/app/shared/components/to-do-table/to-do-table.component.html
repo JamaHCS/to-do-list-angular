@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill" style="width: 100%;">
-    <mat-label>Buscar tareas...</mat-label>
+    <mat-label>Search ToDos...</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Tarea 3" #input>
 </mat-form-field>
 
@@ -30,12 +30,12 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="primary" [disabled]="!element">Hecho</button>
+            <button mat-raised-button color="primary" [disabled]="!element">Check</button>
             <a mat-raised-button color="accent" class="ms-1" [routerLink]="'/to-do/details/' + element.id">
                 <mat-icon inline=true>description</mat-icon>
-                Detalles
+                Details
             </a>
-            <button mat-raised-button color="warn" class="ms-1" (click)="onDelete(element.id)">Eliminar</button>
+            <button mat-raised-button color="warn" class="ms-1" (click)="onDelete(element.id)">Delete</button>
         </td>
     </ng-container>
 
