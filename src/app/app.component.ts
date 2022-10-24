@@ -1,20 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 import { filter, tap } from 'rxjs';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AngularFireMessaging } from "@angular/fire/compat/messaging";
+// import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/compat/firestore";
+import { Token } from './core/models/firebase/token.model';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+
   title = 'to do list';
 
-  constructor(private swUpdate: SwUpdate, private _snackBar: MatSnackBar){}
-  
+  // private tokenCollections: AngularFirestoreCollection<Token>;
+
+  constructor(
+    private swUpdate: SwUpdate,
+    private _snackBar: MatSnackBar,
+    private messaging: AngularFireMessaging,
+    // private firestore: AngularFirestore
+  ) {
+    // this.tokenCollections = this.firestore.collection<Token>('tokens');
+  }
+
   ngOnInit(): void {
     this.updatePWA();
+    this.requestPermission();
+    this.listenNotifications();
+  }
+
+  requestPermission() {
+    this.messaging.requestToken.subscribe(token => {
+
+      if (token) {
+        console.log(token);
+        // this.tokenCollections.add({ token });
+      }
+    })
+  }
+
+  listenNotifications() {
+    this.messaging.messages.subscribe(res => {
+      console.log(res);
+    })
   }
 
   updatePWA() {

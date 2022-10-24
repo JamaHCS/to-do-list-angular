@@ -15,6 +15,17 @@ import { LoadingComponent } from './shared/components/loading/loading.component'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireMessagingModule } from "@angular/fire/compat/messaging";
+// import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+
+initializeApp(environment.firebase)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +38,20 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     MaterialModule,
     SharedModule,
+    AngularFireModule,
+    AngularFireMessagingModule,
+    // AngularFirestoreModule,
     LayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideMessaging(() => getMessaging())
   ],
   providers: [
     {

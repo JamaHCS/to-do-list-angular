@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "to-do-list-9e42e"
+  },
+  "targets": {
+    "to-do-list-9e42e": {
+      "hosting": {
+        "to-do-list-app": [
+          "to-do-list-9e42e"
+        ]
+      }
+    }
   }
 }
