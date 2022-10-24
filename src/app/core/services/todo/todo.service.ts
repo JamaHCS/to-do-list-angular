@@ -19,46 +19,29 @@ export class TodoService {
 
   constructor(private router : Router) {
     if (localStorage.getItem("todoList")) {
-      console.log("true sercice");
       this.todoList = JSON.parse(localStorage.getItem("todoList")!);
-      console.log(this.todoList);
     } else {
-      console.log("false sercice");
       localStorage.setItem("todoList", JSON.stringify(this.todoList));
-      console.log(this.todoList);
     }
 
     if (localStorage.getItem("todoId")) {
-      console.log("true id");
       this.todoId = parseInt(JSON.parse(localStorage.getItem("todoId")!));
-      console.log(this.todoId);
-      console.log(localStorage.getItem("todoId"));
     } else {
-      console.log("false id");
       localStorage.setItem("todoId", JSON.stringify(this.todoId));
-      console.log(this.todoList);
     }
   }
 
   delete(id : number) {
-    console.log("Delete service");
-
     const newToDoList: ToDoItem[] = this.todoList.filter((item) => item.id != id);
     this.updateList(newToDoList);
   }
 
   private updateList(list : ToDoItem[]) {
-    console.log("UpdateList service");
-    console.log(list);
-
     localStorage.setItem("todoList", JSON.stringify(list));
     this.rechargeListFromStorage();
   }
 
   private rechargeListFromStorage() {
-    console.log("recharge service");
-    console.log(localStorage.getItem("todoList"));
-
     this.todoList = JSON.parse(localStorage.getItem("todoList")!);
   }
 
@@ -67,13 +50,10 @@ export class TodoService {
   }
 
   getAll(): ToDoItem[]{
-    console.log("getAll service", this.todoList);
     return this.todoList;
   }
 
   doCheck(id : number) {
-    console.log("done service");
-
     const item: ToDoItem | undefined = this.todoList.find((item) => item.id == id);
 
     if (item) {
@@ -89,8 +69,6 @@ export class TodoService {
   }
 
   insert(todo : string) {
-    console.log("insert service");
-
     const item: ToDoItem = {
       id: this.todoId,
       name: todo,

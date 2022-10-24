@@ -39,8 +39,6 @@ export class ListComponent implements OnInit {
   getItems() {
     this.toDoItems = this.todoService.getAll();
     this.dataSource = new MatTableDataSource(this.toDoItems);
-
-    console.log("getItems", this.toDoItems);
   }
 
   onDelete(id : number) {

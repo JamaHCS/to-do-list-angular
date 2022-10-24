@@ -24,7 +24,8 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireMessagingModule } from "@angular/fire/compat/messaging";
 // import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 
-initializeApp(environment.firebase)
+// initializeApp(environment.firebase);
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ initializeApp(environment.firebase)
     HttpClientModule,
     MaterialModule,
     SharedModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireMessagingModule,
     // AngularFirestoreModule,
     LayoutModule,
