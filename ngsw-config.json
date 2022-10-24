@@ -32,8 +32,8 @@
         "urls": ["https://www.boredapi.com/api/activity", "https://catfact.ninja/fact"]
       },
       "cacheConfig": {
-        "maxSize": 10,
-        "maxAge": "1s",
+        "maxSize": 3,
+        "maxAge": "2d",
         "strategy": "freshness",
         "timeout": "2s"
       }
