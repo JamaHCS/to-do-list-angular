@@ -4,7 +4,7 @@
   "assetGroups": [
     {
       "name": "app",
-      "installMode": "prefetch",
+      "installMode": "lazy",
       "resources": {
         "files": [
           "/favicon.ico",
@@ -13,6 +13,12 @@
           "/*.css",
           "/*.js"
         ]
+      },
+      "cacheConfig": {
+        "maxSize": 2,
+        "maxAge": "30d",
+        "strategy": "freshness",
+        "timeout": "0u"
       }
     },
     {
@@ -24,18 +30,27 @@
           "/assets/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
+      },
+      "cacheConfig": {
+        "maxSize": 2,
+        "maxAge": "30d",
+        "strategy": "performance",
+        "timeout": "2s"
       }
     },
     {
       "name": "api",
       "resources": {
-        "urls": ["https://www.boredapi.com/api/activity", "https://catfact.ninja/fact"]
+        "urls": [
+          "https://www.boredapi.com/api/activity",
+          "https://catfact.ninja/fact"
+        ]
       },
       "cacheConfig": {
         "maxSize": 3,
         "maxAge": "2d",
         "strategy": "freshness",
-        "timeout": "2s"
+        "timeout": "0u"
       }
     }
   ]
